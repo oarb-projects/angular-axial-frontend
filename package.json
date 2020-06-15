@@ -2,8 +2,8 @@
   "name": "dashboard",
   "version": "0.0.0",
   "engines": {
-    "node": "6.11.0",
-    "npm": "3.10.10"
+    "node": "v13.11.0",
+    "npm": "6.14.3"
   },
   "scripts": {
     "ng": "ng",
