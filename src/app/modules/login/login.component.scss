@@ -1,0 +1,27 @@
+$information-phone: "only screen and (max-width : 400px)";
+$information-web: "(min-width : 401px)";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+section {
+    @media #{$information-web} {
+        background-image: url(../../../assets/imagen/fondo.jpg);
+    }
+    height: 100%;    
+}
+
+@media #{$information-phone} {
+    mat-card {
+        width: 100%;
+    }
+}
+
+@media #{$information-web} {
+    mat-card {
+        width: 500px;
+    }
+}

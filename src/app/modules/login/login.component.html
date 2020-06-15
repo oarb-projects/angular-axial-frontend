@@ -1,0 +1,36 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <mat-card fxLayout="column" fxFlex="500px" fxFlex.xs="100%" 
+    fxLayoutAlign="start stretch">
+    <mat-card-title>Inmuebles 82</mat-card-title>
+    <mat-card-subtitle>Sign in or register</mat-card-subtitle>    
+    
+    <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUsuario(loginForm.value)" 
+      fxLayout="column" fxFlex="80" fxLayoutAlign="center stretch" fxLayoutGap="10px">
+
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Direccion de correo" formControlName="correo" id="correo">
+          <mat-hint align="end">No más de 60 caracteres de largo.</mat-hint>
+          <mat-error *ngIf="hasError('correo', 'required')">Correo es requerido</mat-error>
+          <mat-error *ngIf="hasError('correo', 'maxlength')">Tienes más de 60 caracteres</mat-error>
+        </mat-form-field>        
+        <mat-form-field>
+          <input matInput type="password" placeholder="Contraseña" formControlName="password">
+          <mat-hint align="end">No más de 20 caracteres de largo.</mat-hint>
+          <mat-error *ngIf="hasError('password', 'required')">Contraseña es requerido</mat-error>
+          <mat-error *ngIf="hasError('password', 'maxlength')">Tienes más de 20 caracteres</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions fxLayout="column">        
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Iniciar sesión</button>
+        <!--<button mat-raised-button color="warn" (click)="onCancel()">Cerrar</button>-->        
+      </mat-card-actions>
+
+    </form>    
+
+    <mat-card-footer fxLayout="row" fxLayoutAlign="center center">        
+      <p>¿Aún no estás registrado? <a routerLinkActive="list-item-active" routerLink="/registrar">Crear Cuenta</a></p>
+    </mat-card-footer>
+  </mat-card>    
+</section>

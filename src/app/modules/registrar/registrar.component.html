@@ -1,0 +1,83 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <mat-card fxLayout="column" fxFlex="700px" fxFlex.xs="100%" 
+    fxLayoutAlign="start stretch">
+    <mat-card-title>Inmuebles 82</mat-card-title>
+    <mat-card-subtitle>Registro</mat-card-subtitle>    
+    
+    <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="resgistroUsuario(registerForm.value)" 
+      fxLayout="column" fxFlex="90" fxLayoutAlign="center stretch" fxLayoutGap="10px">
+
+      <mat-card-content fxLayout="column">
+        <!--
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="Independiente" fxLayout="row">
+          <mat-button-toggle fxFlex="50" value="Independiente" (change)="onValChange($event.value)">Independiente</mat-button-toggle>
+          <mat-button-toggle fxFlex="50" value="Compañia" (change)="onValChange($event.value)">Compañia</mat-button-toggle>          
+        </mat-button-toggle-group>
+        -->
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Nombre compañia (Obligatorio)" formControlName="nombreCompania">
+          <mat-error *ngIf="hasError('nombreCompania', 'required')">Nombre de la compañia es requerido</mat-error>
+          <mat-error *ngIf="hasError('nombreCompania', 'maxlength')">Tienes más de 20 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Direccion de correo (Obligatorio)" formControlName="correo" id="correo">
+          <mat-error *ngIf="hasError('correo', 'required')">Correo es requerido</mat-error>
+          <mat-error *ngIf="hasError('correo', 'maxlength')">Tienes más de 250 caracteres</mat-error>
+          <mat-error *ngIf="hasError('correo', 'pattern')">Formato incorrecto</mat-error>          
+        </mat-form-field>     
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Contraseña (Obligatorio)" formControlName="password">
+          <mat-error *ngIf="hasError('password', 'required')">Contraseña es requerido</mat-error>
+          <mat-error *ngIf="hasError('password', 'maxlength')">Tienes más de 20 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Confirmar Contraseña (Obligatorio)" formControlName="password2">
+          <mat-error *ngIf="hasError('password2', 'notEquivalent')">Contraseña no coindice</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Nombre (Obligatorio)" formControlName="nombre">
+          <mat-error *ngIf="hasError('nombre', 'required')">Nombre es requerido</mat-error>
+          <mat-error *ngIf="hasError('nombre', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Apellido (Obligatorio)" formControlName="apellido">
+          <mat-error *ngIf="hasError('apellido', 'required')">Nombre es requerido</mat-error>
+          <mat-error *ngIf="hasError('apellido', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input matInput type="text" placeholder="Telefono Personal (Obligatorio)" formControlName="telefonoPersonal" appPhoneMask>
+          <mat-error *ngIf="hasError('telefonoPersonal', 'required')">Telefono es requerido</mat-error>
+          <mat-error *ngIf="hasError('telefonoPersonal', 'maxlength')">Tienes más de 20 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Telefono Oficina" formControlName="telefonoOficina" appPhoneMask>
+          <mat-error *ngIf="hasError('telefonoOficina', 'maxlength')">Tienes más de 20 caracteres</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="text" placeholder="Pagina Web" formControlName="paginaWeb">          
+          <mat-error *ngIf="hasError('paginaWeb', 'maxlength')">Tienes más de 100 caracteres</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions fxLayout="column">
+        <button mat-raised-button color="primary" [disabled]="!registerForm.valid">Crear Cuenta</button>
+        <!--<button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>-->
+      </mat-card-actions>
+
+    </form>    
+
+    <mat-card-footer fxLayout="row" fxLayoutAlign="center center">        
+      <p>¿Ya tienes cuenta? <a routerLinkActive="list-item-active" routerLink="/login">Iniciar sesión</a></p>
+    </mat-card-footer>
+  </mat-card>    
+</section>
