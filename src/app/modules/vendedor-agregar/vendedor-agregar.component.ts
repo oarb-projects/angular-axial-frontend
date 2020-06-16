@@ -57,7 +57,8 @@ export class VendedorAgregarComponent implements OnInit {
       result => {
         console.log('returned by server');
         console.log(result);
-        if (Array.isArray(result)) {
+        // if (Array.isArray(result)) {
+        if (result.hasOwnProperty('detail')) {
           this.router.navigateByUrl('/sellers');
         }
       },

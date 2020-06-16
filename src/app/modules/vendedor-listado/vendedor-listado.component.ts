@@ -47,14 +47,13 @@ export class VendedorListadoComponent implements OnInit, AfterViewInit  {
 
   public redirectToDelete = (id: string) => {
     console.log(id)
-    this.sellersServices.delete(id).subscribe(
+    this.sellersServices.delete(id, this.companyId).subscribe(
       result => {
         console.log('returned by server');
         console.log(result);
-        if (result.usu_activo === 0) {
+        if (result.hasOwnProperty('detail')) {
           this.redirectTo('/sellers');
         }
-
       },
       err => {
         console.log('err');

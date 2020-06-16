@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {User} from '../Models/User';
 import {UserRegister} from '../Models/UserRegister';
 import { map } from 'rxjs/operators';
@@ -135,11 +135,20 @@ export class SellersService {
     ];
   }
 
-  delete(id: string){
-    const user={
+  delete(id: string, companyId){
+    const user = {
       usu_id: id
-    }
-    const base = this.http.delete(this.deleteUsersUrl + '/' + id);
+    };
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        userId: id,
+        company: companyId,
+      },
+    };
+    const base = this.http.delete(this.deleteUsersUrl + '/' + id, options);
     const request = base.pipe(
         map((data: any) => {
             return data;
