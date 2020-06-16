@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {User} from '../Models/User';
 import {UserRegister} from '../Models/UserRegister';
 import { map } from 'rxjs/operators';
 import { GLOBAL } from './global';
 
-import {Observable} from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+// don't forget this, or you'll get a runtime error
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +24,29 @@ export class SellersService {
     this.deleteUsersUrl = this.backendUrl + '/usuarios/profile';
   }
 
+  public getUser(id): Observable<User> {
+    const getUserUrl = this.deleteUsersUrl + '/' + id;
+    console.log('getting user');
+    console.log(getUserUrl);
+    return this.http.get<User>(getUserUrl).pipe(catchError(this.erroHandler));
+  }
+
+  public editUser(id,user): Observable<User> {
+    const getUserUrl = this.deleteUsersUrl + '/' + id;
+    console.log('Modifying user');
+    console.log(getUserUrl);
+    return this.http.post<User>(getUserUrl, user).pipe(catchError(this.erroHandler));
+  }
+  erroHandler(error: HttpErrorResponse) {
+    console.error('An error occurred:', error.error);
+    return throwError(error.message || 'server Error');
+  }
+
+//   public profile(): Observable<any> {
+//     return this.http.get(this.url + '/usuarios/profile', {
+//         headers: { Authorization: this.getToken() }
+//     });
+// }
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.usersUrl);

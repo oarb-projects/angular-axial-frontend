@@ -21,6 +21,8 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { SellersService } from '../../services/vendedor.service';
 import { VendedorListadoComponent } from '../../modules/vendedor-listado/vendedor-listado.component';
 import { VendedorAgregarComponent } from '../../modules/vendedor-agregar/vendedor-agregar.component';
+import { VendedorFormComponent  } from '../../modules/vendedor-form/vendedor-form.component';
+import { VendedorEditarComponent } from '../../modules/vendedor-editar/vendedor-editar.component';
 
 import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
 
@@ -33,7 +35,9 @@ import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
     RegistrarComponent,
     PhoneMaskDirective,
     VendedorListadoComponent,
-    VendedorAgregarComponent
+    VendedorAgregarComponent,
+    VendedorFormComponent,
+    VendedorEditarComponent
   ],
   imports: [
     CommonModule,

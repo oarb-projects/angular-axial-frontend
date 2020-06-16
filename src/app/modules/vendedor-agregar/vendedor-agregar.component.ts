@@ -38,7 +38,6 @@ export class VendedorAgregarComponent implements OnInit {
     return this.registerForm.controls[controlName].hasError(errorName);
   }
 
-
   private executeResgistroUsuario = (registerFormValue) => {
     this.credentials = {
       id: 0,
@@ -58,7 +57,7 @@ export class VendedorAgregarComponent implements OnInit {
       result => {
         console.log('returned by server');
         console.log(result);
-        if (Array.isArray(result)){
+        if (Array.isArray(result)) {
           this.router.navigateByUrl('/sellers');
         }
       },

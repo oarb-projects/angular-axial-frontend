@@ -10,6 +10,7 @@ import { RegistrarComponent } from './modules/registrar/registrar.component';
 // Oscar Rosete Deliverable
 import { VendedorListadoComponent } from './modules/vendedor-listado/vendedor-listado.component';
 import { VendedorAgregarComponent } from './modules/vendedor-agregar/vendedor-agregar.component';
+import { VendedorEditarComponent } from './modules/vendedor-editar/vendedor-editar.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -34,7 +35,8 @@ const routes: Routes = [
     {
       path: 'add-seller',
       component: VendedorAgregarComponent
-    }
+    },
+    { path: 'sellers/edit', component: VendedorEditarComponent}
   ]
   },
   { path: 'login', component: LoginComponent },

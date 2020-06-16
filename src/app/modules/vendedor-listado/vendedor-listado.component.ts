@@ -21,8 +21,8 @@ export class VendedorListadoComponent implements OnInit, AfterViewInit  {
   users: User[];
   public displayedColumns = ['usu_nombre', 'usu_apellido', 'usu_correo', 'update', 'delete'];
   public dataSource = new MatTableDataSource<User>();
-  // MatPaginator Output
   pageEvent: PageEvent;
+  private companyId = '1';
 
 
   @ViewChild(MatSort) sort: MatSort;
@@ -35,7 +35,9 @@ export class VendedorListadoComponent implements OnInit, AfterViewInit  {
   }
 
   public redirectToUpdate = (id: string) => {
-
+    const updateUrl = `sellers/edit`;
+    console.log(updateUrl);
+    this.router.navigate([updateUrl], {queryParams: {userId: id, companyId: this.companyId} });
   }
 
   redirectTo(uri: string) {

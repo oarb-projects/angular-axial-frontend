@@ -1,0 +1,10 @@
+<div>
+  <app-vendedor-form
+    [title]='title'
+    [user]='user'
+    [buttonAction]='buttonAction'
+    *ngIf="informationAvailable"
+    (clicked)="onClicked($event)">
+  >
+  </app-vendedor-form>
+</div>
