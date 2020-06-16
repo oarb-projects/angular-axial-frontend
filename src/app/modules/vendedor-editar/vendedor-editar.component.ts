@@ -38,28 +38,25 @@ export class VendedorEditarComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.activatedroute.snapshot.queryParamMap.get('userId');
     this.sellerService.getUser(this.userId).subscribe((user) => {
-      console.log('la información del usuario es');
+      console.log('Seller Information received from server');
       console.log(user);
       this.user = user;
       this.informationAvailable = true;
     });
   }
+
   onClicked(user: UserEditViewModel){
-    console.log('------Logged from parent user received from child');
     const treatedUser = {
       ...this.user,
       usu_apellido: user.apellido,
       usu_correo: user.correo,
-      // usu_fecha_nacimiento: "2020-06-15T10:15:57.000Z",
       usu_nombre: user.nombre,
       usu_pagina_web: user.paginaWeb,
       usu_telefono_oficina: user.telefonoOficina,
       usu_telefono_personal: user.telefonoPersonal
     };
-    console.log(treatedUser);
-
     this.sellerService.editUser(this.userId, treatedUser).subscribe((receivedUser) => {
-      console.log('la información del usuario es');
+      console.log('Updated User received from server');
       console.log(receivedUser);
       if (receivedUser.usu_activo === 1) {
         this.router.navigate(['sellers']);
@@ -67,17 +64,14 @@ export class VendedorEditarComponent implements OnInit {
     });
   }
 
+  // For Put Request trials
   redirectToUpdate() {
-    console.log(this.user);
     const sentUser = {
       ...this.user,
       usu_nombre: 'cambionombre2',
       usu_apellido: 'cambioapellido2'
     };
-    console.log(sentUser);
     this.sellerService.editUser(this.userId, sentUser).subscribe((user) => {
-        console.log('la información del usuario es');
-        console.log(user);
         if (user.usu_activo === 1) {
           this.router.navigate(['sellers']);
         }

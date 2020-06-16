@@ -8,7 +8,6 @@ import { GLOBAL } from './global';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-// don't forget this, or you'll get a runtime error
 
 @Injectable({
   providedIn: 'root'
@@ -26,27 +25,18 @@ export class SellersService {
 
   public getUser(id): Observable<User> {
     const getUserUrl = this.deleteUsersUrl + '/' + id;
-    console.log('getting user');
-    console.log(getUserUrl);
     return this.http.get<User>(getUserUrl).pipe(catchError(this.erroHandler));
   }
 
   public editUser(id,user): Observable<User> {
     const getUserUrl = this.deleteUsersUrl + '/' + id;
-    console.log('Modifying user');
-    console.log(getUserUrl);
     return this.http.post<User>(getUserUrl, user).pipe(catchError(this.erroHandler));
   }
+
   erroHandler(error: HttpErrorResponse) {
     console.error('An error occurred:', error.error);
     return throwError(error.message || 'server Error');
   }
-
-//   public profile(): Observable<any> {
-//     return this.http.get(this.url + '/usuarios/profile', {
-//         headers: { Authorization: this.getToken() }
-//     });
-// }
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.usersUrl);
@@ -158,11 +148,7 @@ export class SellersService {
   }
 
   register(user: UserRegister){
-    console.log(' ====from register service');
-    console.log(user);
     const base = this.http.post(this.usersUrl, user);
-    // return this.http.get<User[]>(this.usersUrl);
-
     const request = base.pipe(
         map((data: any) => {
             return data;

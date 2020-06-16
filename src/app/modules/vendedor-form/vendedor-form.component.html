@@ -17,17 +17,6 @@
           <mat-error *ngIf="hasError('correo', 'pattern')">Formato incorrecto</mat-error>
         </mat-form-field>
 
-        <!-- <mat-form-field>
-          <input matInput type="password" placeholder="Contraseña (Obligatorio)" formControlName="password">
-          <mat-error *ngIf="hasError('password', 'required')">Contraseña es requerido</mat-error>
-          <mat-error *ngIf="hasError('password', 'maxlength')">Tienes más de 20 caracteres</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput type="password" placeholder="Confirmar Contraseña (Obligatorio)" formControlName="password2">
-          <mat-error *ngIf="hasError('password2', 'notEquivalent')">Contraseña no coindice</mat-error>
-        </mat-form-field> -->
-
         <mat-form-field>
           <input matInput type="text" placeholder="Nombre (Obligatorio)" formControlName="nombre">
           <mat-error *ngIf="hasError('nombre', 'required')">Nombre es requerido</mat-error>

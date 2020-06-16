@@ -36,7 +36,6 @@ export class VendedorListadoComponent implements OnInit, AfterViewInit  {
 
   public redirectToUpdate = (id: string) => {
     const updateUrl = `sellers/edit`;
-    console.log(updateUrl);
     this.router.navigate([updateUrl], {queryParams: {userId: id, companyId: this.companyId} });
   }
 
@@ -46,7 +45,6 @@ export class VendedorListadoComponent implements OnInit, AfterViewInit  {
   }
 
   public redirectToDelete = (id: string) => {
-    console.log(id)
     this.sellersServices.delete(id, this.companyId).subscribe(
       result => {
         console.log('returned by server');
@@ -62,24 +60,19 @@ export class VendedorListadoComponent implements OnInit, AfterViewInit  {
       );
   }
 
-  public newUser = () => {
-    console.log('adding new user');
-  }
-
   public doFilter = (value: string) => {
-    console.log('filtering');
-    console.log(value);
     this.dataSource.filter = value.trim().toLocaleLowerCase();
-    console.log( this.dataSource);
   }
 
   public getAllUsers = () => {
     this.sellersServices.getUsers()
     .subscribe(users => {
+      console.log('Users recollected from db');
       console.log(users);
       this.users = users;
       this.dataSource.data = this.users;
     });
+    // For user interface trials
     // this.users = this.sellersServices.getUsersHardcoded();
     // this.dataSource.data = this.users;
   }

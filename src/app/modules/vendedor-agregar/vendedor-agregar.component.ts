@@ -55,9 +55,8 @@ export class VendedorAgregarComponent implements OnInit {
 
     this.sellerService.register(this.credentials).subscribe(
       result => {
-        console.log('returned by server');
+        console.log('User returned by server');
         console.log(result);
-        // if (Array.isArray(result)) {
         if (result.hasOwnProperty('detail')) {
           this.router.navigateByUrl('/sellers');
         }
@@ -71,8 +70,6 @@ export class VendedorAgregarComponent implements OnInit {
 
   public resgistroUsuario = (registerFormValue) => {
     if (this.registerForm.valid) {
-      console.log(this.registerForm);
-      console.log(this.registerForm.valid);
       this.executeResgistroUsuario(registerFormValue);
     }
   }
