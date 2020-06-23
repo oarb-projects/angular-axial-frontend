@@ -1,0 +1,125 @@
+<div class="mat-elevation-z8" fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxLayout="column" fxFlex="700px" fxFlex.xs="100%"
+    fxLayoutAlign="start stretch">
+      <mat-card-title>Inmuebles 82</mat-card-title>
+      <mat-card-subtitle>Registro</mat-card-subtitle>
+      <h1>{{title}} Propiedad</h1>
+  
+    <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="resgistroPropiedad(registerForm.value)"
+      fxLayout="column" fxFlex="90" fxLayoutAlign="center stretch" fxLayoutGap="10px">
+  
+        <mat-card-content fxLayout="column">
+
+            <mat-form-field fxFlex="30">
+                <mat-label>Tipo de negocio</mat-label>
+                <select matNativeControl required formControlName="id_tipo_propiedad"  [(ngModel)]="opcion"> 
+                    <option value="1">Venta</option>
+                    <option value="2">Renta</option>
+                </select>
+                <mat-error *ngIf="hasError('id_tipo_propiedad', 'required')">Opcion es requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo de propiedad</mat-label>
+                <select matNativeControl required formControlName="id_tipo_negocio"  [(ngModel)]="tipo">
+                    <option value="1">Casa</option>
+                    <option value="2">Departamento</option>
+                    <option value="terreno">Terreno</option>
+                    <option value="4">Local Comercial</option>
+                    <option value="5">Nave Industrial</option>
+                </select>
+                <mat-error *ngIf="hasError('id_tipo_negocio', 'required')">Tipo es requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Introducir un tag (Obligatorio)" formControlName="tag" id="correo">
+                <mat-error *ngIf="hasError('tag', 'required')">Tag es requerido</mat-error>
+                <mat-error *ngIf="hasError('tag', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Introducir una ubicacion (Obligatorio)" formControlName="ubicacion" id="correo">
+                <mat-error *ngIf="hasError('ubicacion', 'required')">Una ubicacion es requerida</mat-error>
+                <mat-error *ngIf="hasError('ubicacion', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Introducir una direccion (Obligatorio)" formControlName="direccion" id="correo">
+                <mat-error *ngIf="hasError('direccion', 'required')">Una direccion es requerida</mat-error>
+                <mat-error *ngIf="hasError('direccion', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Introducir una descripcion (Obligatorio)" formControlName="descripcion" id="correo">
+                <mat-error *ngIf="hasError('descripcion', 'required')">Una descripcion es requerida</mat-error>
+                <mat-error *ngIf="hasError('descripcion', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+            </mat-form-field>  
+            
+            <div id="a" *ngIf="tipo === 'casa' || tipo === 'departamento'">Recamaras</div>
+            <mat-form-field *ngIf="tipo === '1' || tipo === '2'" >
+                <input type="number" class="form-control" matInput placeholder="Numero de recamaras"
+                formControlName="cantidad_recamaras">
+                <mat-error *ngIf="hasError('cantidad_recamaras', 'min')">La cantidad debe ser mayor de 0</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field *ngIf="tipo === '1' || tipo === '2'|| tipo === '4'" >
+                <input type="number" class="form-control" matInput placeholder="Numero de Baños"
+                formControlName="cantidad_banos">
+            </mat-form-field>  
+
+            <mat-form-field *ngIf="tipo === '1' || tipo === '2'|| tipo === '4'|| tipo === '5'" >
+                    <input type="number" class="form-control" matInput placeholder="Numero de pisos"
+                    formControlName="cantidad_pisos">
+                    <mat-error *ngIf="hasError('cantidad_pisos', 'min')">La cantidad debe ser mayor de 0</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field *ngIf="tipo === '1' || tipo === '2'" >
+                    <input type="number" class="form-control" matInput placeholder="Numero de Cuartos de Lavado"
+                 formControlName="cuarto_lavado">
+            </mat-form-field>  
+
+            <mat-form-field *ngIf="tipo === '1' || tipo === '2'" >
+                    <input type="number" class="form-control" matInput placeholder="jardín"
+                 formControlName="jardín">
+            </mat-form-field>  
+
+            <mat-form-field *ngIf="tipo === '1'">
+                <input type="number" class="form-control" matInput placeholder="nueva"
+                formControlName="nueva">
+            </mat-form-field>  
+
+            <mat-form-field *ngIf="(tipo === '1' || tipo === '2' || tipo === '4') && (opcion==='2')">
+                <input type="number" class="form-control" matInput placeholder="amueblado"
+                formControlName="amueblado">
+            </mat-form-field>  
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Introducir las dimensiones (Obligatorio)" formControlName="dimensiones" id="correo">
+                <mat-error *ngIf="hasError('dimensiones', 'required')">Las dimensiones son requeridas</mat-error>
+                <mat-error *ngIf="hasError('dimensiones', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Introducir referencias (Obligatorio)" formControlName="referencias" id="correo">
+                <mat-error *ngIf="hasError('referencias', 'required')">Las referencias son requeridas</mat-error>
+                <mat-error *ngIf="hasError('referencias', 'maxlength')">Tienes más de 50 caracteres</mat-error>
+            </mat-form-field>  
+
+            <mat-form-field>
+                <input type="number" class="form-control" matInput placeholder="Precio"
+                formControlName="precio">
+                <mat-error *ngIf="hasError('precio', 'min')">La cantidad debe ser mayor de 0</mat-error>
+            </mat-form-field>  
+
+            <!-- <div>Atributos Especiales</div> -->
+
+        </mat-card-content>
+
+        <mat-card-actions fxLayout="column">
+            <button mat-raised-button color="primary" [disabled]="!registerForm.valid">{{buttonAction}} Inmueble</button>
+        </mat-card-actions>
+    
+    </form>
+    </mat-card>
+</div>
+    

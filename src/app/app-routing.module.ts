@@ -12,6 +12,12 @@ import { VendedorListadoComponent } from './modules/vendedor-listado/vendedor-li
 import { VendedorAgregarComponent } from './modules/vendedor-agregar/vendedor-agregar.component';
 import { VendedorEditarComponent } from './modules/vendedor-editar/vendedor-editar.component';
 
+// Oscar Rosete Deliverable 2
+import { InventarioAgregarComponent } from './modules/inventario-agregar/inventario-agregar.component';
+import { InventarioListadoComponent } from './modules/inventario-listado/inventario-listado.component';
+import { InventarioEditarComponent } from './modules/inventario-editar/inventario-editar.component';
+
+
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
@@ -36,7 +42,16 @@ const routes: Routes = [
       path: 'add-seller',
       component: VendedorAgregarComponent
     },
-    { path: 'sellers/edit', component: VendedorEditarComponent}
+    { path: 'sellers/edit', component: VendedorEditarComponent},
+    {
+      path: 'properties',
+      component: InventarioListadoComponent
+    },
+    {
+      path: 'add-property',
+      component: InventarioAgregarComponent
+    },
+    { path: 'properties/edit', component: InventarioEditarComponent},
   ]
   },
   { path: 'login', component: LoginComponent },

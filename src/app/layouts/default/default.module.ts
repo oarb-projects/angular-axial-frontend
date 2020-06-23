@@ -24,6 +24,13 @@ import { VendedorAgregarComponent } from '../../modules/vendedor-agregar/vendedo
 import { VendedorFormComponent  } from '../../modules/vendedor-form/vendedor-form.component';
 import { VendedorEditarComponent } from '../../modules/vendedor-editar/vendedor-editar.component';
 
+// Oscar Rosete Deliverable 2
+import {InventarioService} from '../../services/inventario.service'
+import { InventarioAgregarComponent } from '../../modules/inventario-agregar/inventario-agregar.component';
+import { InventarioListadoComponent } from '../../modules/inventario-listado/inventario-listado.component';
+import { InventarioEditarComponent } from '../../modules/inventario-editar/inventario-editar.component';
+import { InventarioFormComponent } from '../../modules/inventario-form/inventario-form.component';
+
 import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
 
 @NgModule({
@@ -37,7 +44,11 @@ import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
     VendedorListadoComponent,
     VendedorAgregarComponent,
     VendedorFormComponent,
-    VendedorEditarComponent
+    VendedorEditarComponent,
+    InventarioAgregarComponent,
+    InventarioListadoComponent,
+    InventarioEditarComponent,
+    InventarioFormComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +63,9 @@ import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
     AuthenticationService,
     AuthGuardService,
     DashboardService,
-    SellersService
+    SellersService,
+    InventarioService
+
   ]
 })
 
