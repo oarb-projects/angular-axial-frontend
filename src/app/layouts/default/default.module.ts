@@ -23,6 +23,7 @@ import { VendedorListadoComponent } from '../../modules/vendedor-listado/vendedo
 import { VendedorAgregarComponent } from '../../modules/vendedor-agregar/vendedor-agregar.component';
 import { VendedorFormComponent  } from '../../modules/vendedor-form/vendedor-form.component';
 import { VendedorEditarComponent } from '../../modules/vendedor-editar/vendedor-editar.component';
+import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
 
 // Oscar Rosete Deliverable 2
 import {InventarioService} from '../../services/inventario.service'
@@ -30,8 +31,7 @@ import { InventarioAgregarComponent } from '../../modules/inventario-agregar/inv
 import { InventarioListadoComponent } from '../../modules/inventario-listado/inventario-listado.component';
 import { InventarioEditarComponent } from '../../modules/inventario-editar/inventario-editar.component';
 import { InventarioFormComponent } from '../../modules/inventario-form/inventario-form.component';
-
-import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
+import {MainPipe} from './main-pipe.module'
 
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
     InventarioAgregarComponent,
     InventarioListadoComponent,
     InventarioEditarComponent,
-    InventarioFormComponent
+    InventarioFormComponent,
   ],
   imports: [
     CommonModule,
@@ -57,14 +57,15 @@ import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
     FlexLayoutModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MainPipe
   ],
   providers: [
     AuthenticationService,
     AuthGuardService,
     DashboardService,
     SellersService,
-    InventarioService
+    InventarioService,
 
   ]
 })

@@ -9,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import {PageEvent} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 
+
 @Component({
   selector: 'app-inventario-listado',
   templateUrl: './inventario-listado.component.html',
@@ -17,10 +18,12 @@ import {MatButtonModule} from '@angular/material/button';
 export class InventarioListadoComponent implements OnInit {
   properties: Property[];
   private companyId = '2';
+  private tipo_propiedad=['','Casa','Departamento','Terreno','Local','Nave'];
+  private tipo_negocio=['','venta','renta'];
 
   // material angular
   public dataSource = new MatTableDataSource<Property>();
-  public displayedColumns = ['ubicacion', 'direccion', 'descripcion', 'update', 'delete'];
+  public displayedColumns = ['id_tipo_propiedad','id_tipo_negocio','ubicacion', 'direccion', 'descripcion', 'precio','update', 'delete'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -30,6 +33,24 @@ export class InventarioListadoComponent implements OnInit {
     this.getAllUsers();
   }
 
+  getTextTipoPropiedad(tipo:number):string{
+    return this.tipo_propiedad[tipo];
+  }
+
+  getTextTipoNegocio(tipo:number):string{
+    return this.tipo_negocio[tipo];
+  }
+
+  getCurrency(money:number):string{
+    return money.toString()
+  }
+
+  // pagination code and sort
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  
   public getAllUsers = () => {
     this.inventarioService.getProperties()
     .subscribe(properties => {
