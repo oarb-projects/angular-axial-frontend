@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit,  ViewChild } from '@angular/core';
 import {InventarioService} from '../../services/inventario.service';
 import { Router } from '@angular/router';
 import {Property} from '../../Models/Property';
@@ -6,8 +6,6 @@ import {Property} from '../../Models/Property';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import {PageEvent} from '@angular/material/paginator';
-import {MatButtonModule} from '@angular/material/button';
 
 
 @Component({
@@ -30,7 +28,7 @@ export class InventarioListadoComponent implements OnInit {
   constructor(private inventarioService: InventarioService,private router: Router) { }
   
   ngOnInit(): void {
-    this.getAllUsers();
+    this.getAllProperties();
   }
 
   getTextTipoPropiedad(tipo:number):string{
@@ -51,7 +49,7 @@ export class InventarioListadoComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
   
-  public getAllUsers = () => {
+  public getAllProperties = () => {
     this.inventarioService.getProperties()
     .subscribe(properties => {
       console.log('properties recollected from db');

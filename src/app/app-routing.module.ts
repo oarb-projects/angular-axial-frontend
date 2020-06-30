@@ -17,6 +17,8 @@ import { InventarioAgregarComponent } from './modules/inventario-agregar/inventa
 import { InventarioListadoComponent } from './modules/inventario-listado/inventario-listado.component';
 import { InventarioEditarComponent } from './modules/inventario-editar/inventario-editar.component';
 
+// Oscar Rosete Deliverable 3
+import {PublicarPropiedadesComponent} from './modules/publicar-propiedades/publicar-propiedades.component'
 
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -50,6 +52,10 @@ const routes: Routes = [
     {
       path: 'add-property',
       component: InventarioAgregarComponent
+    },
+    {
+      path:'publish-properties',
+      component:PublicarPropiedadesComponent
     },
     { path: 'properties/edit', component: InventarioEditarComponent},
   ]

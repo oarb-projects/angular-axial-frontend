@@ -1,0 +1,30 @@
+#Sellers{
+    margin-bottom: 20px;
+}
+.circularImage{
+    border-radius: 50%;
+    margin-right: 25px;
+    width:80px
+}
+.sellerRow{
+    // border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.sellerRow p{
+    margin-bottom: 0px;
+}
+.seller-name{
+    font-size: 26px;
+    font-weight: bold;
+    margin-right:20px
+}
+.seller-name{
+    font-size: 22px;
+}
+#sellers-popup h2{
+    font-size: 30px;
+    font-weight: bolder;
+}

@@ -16,6 +16,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+// import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -35,7 +38,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatCheckboxModule
+    // MatDialog, MatDialogRef
   ],
   exports: [
     MatSidenavModule,
@@ -52,7 +58,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatCheckboxModule
+    // MatDialog, MatDialogRef
   ]
 })
 

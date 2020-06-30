@@ -26,12 +26,17 @@ import { VendedorEditarComponent } from '../../modules/vendedor-editar/vendedor-
 import { PhoneMaskDirective } from 'src/app/directives/phone-mask.directive';
 
 // Oscar Rosete Deliverable 2
-import {InventarioService} from '../../services/inventario.service'
+import {InventarioService} from '../../services/inventario.service';
 import { InventarioAgregarComponent } from '../../modules/inventario-agregar/inventario-agregar.component';
 import { InventarioListadoComponent } from '../../modules/inventario-listado/inventario-listado.component';
 import { InventarioEditarComponent } from '../../modules/inventario-editar/inventario-editar.component';
 import { InventarioFormComponent } from '../../modules/inventario-form/inventario-form.component';
 import {MainPipe} from './main-pipe.module'
+
+// Oscar Rosete Deliverable 3
+import { PublicarPropiedadesComponent } from '../../modules/publicar-propiedades/publicar-propiedades.component';
+import { PublicarPropiedadesVendedoresComponent } from '../..//modules/publicar-propiedades-vendedores/publicar-propiedades-vendedores.component';
+import {PublicacionesService} from '../../services/publicaciones.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,8 @@ import {MainPipe} from './main-pipe.module'
     InventarioListadoComponent,
     InventarioEditarComponent,
     InventarioFormComponent,
+    PublicarPropiedadesComponent,
+    PublicarPropiedadesVendedoresComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +73,7 @@ import {MainPipe} from './main-pipe.module'
     DashboardService,
     SellersService,
     InventarioService,
-
+    PublicacionesService
   ]
 })
 

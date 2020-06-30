@@ -1,0 +1,34 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
+<div id="sellers-popup">
+    <h2 class="example-h2">Listado de Vendedores</h2>
+    <section id="Sellers">
+      <div *ngFor="let unit of units;let i=index">
+          <mat-checkbox 
+              [(labelPosition)]='labelPosition'
+              [checked]="unit.checked" 
+              (change)="toggle($event,unit)"
+          >
+              <div class="sellerRow" >
+                  <img class="circularImage" [src]="unit.photo"/> 
+                  <div>
+                      <p class="seller-name">{{unit.usu_nombre +  ' ' + unit.usu_apellido}}</p>
+                      <p class="seller-phone">{{unit.usu_telefono_personal}}</p>
+                  </div>
+              </div>
+          </mat-checkbox>
+      </div>
+
+    </section>
+    <button mat-raised-button color="accent" (click)='modifyPublications()'>Seleccionar Vendedores</button>
+</div>
