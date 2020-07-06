@@ -38,6 +38,9 @@ import { PublicarPropiedadesComponent } from '../../modules/publicar-propiedades
 import { PublicarPropiedadesVendedoresComponent } from '../..//modules/publicar-propiedades-vendedores/publicar-propiedades-vendedores.component';
 import {PublicacionesService} from '../../services/publicaciones.service';
 
+// Oscar Rosete Deliverable 4
+import { RegisterEmailComponent } from '../../modules/register-email/register-email.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -55,7 +58,8 @@ import {PublicacionesService} from '../../services/publicaciones.service';
     InventarioEditarComponent,
     InventarioFormComponent,
     PublicarPropiedadesComponent,
-    PublicarPropiedadesVendedoresComponent
+    PublicarPropiedadesVendedoresComponent,
+    RegisterEmailComponent
   ],
   imports: [
     CommonModule,

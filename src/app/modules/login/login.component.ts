@@ -77,7 +77,17 @@ export class LoginComponent {
         this.router.navigateByUrl('');
       },
       err => {
-        console.log(err);
+        console.log(err.error);
+        if(err.error.code===1){
+          console.log("=redirecting")
+          // this.router.navigateByUrl('registration-email');
+          // this.router.navigate(['/registration-email'], {state: 
+          //   {correo:this.credentials.correo}
+          // });
+          this.router.navigate(['/registration-email'], {queryParams: 
+            {correo:this.credentials.correo}
+          });
+        }
       }
     )
   }

@@ -20,6 +20,9 @@ import { InventarioEditarComponent } from './modules/inventario-editar/inventari
 // Oscar Rosete Deliverable 3
 import {PublicarPropiedadesComponent} from './modules/publicar-propiedades/publicar-propiedades.component'
 
+// Oscar Rosete Deliverable 4
+import { RegisterEmailComponent } from './modules/register-email/register-email.component';
+
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
@@ -62,6 +65,8 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: RegistrarComponent },
+  { path: 'registration-email', component: RegisterEmailComponent },
+
 ];
 
 /*const routes: Routes = [

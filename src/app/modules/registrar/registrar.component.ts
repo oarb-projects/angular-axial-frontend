@@ -98,10 +98,13 @@ export class RegistrarComponent {
 
     this.auth.register(this.credentials).subscribe(
       result => {
-        if(this.auth.isLoggedIn())
-          this.router.navigateByUrl('');
-        else
-          alert(result.error);
+        // if(this.auth.isLoggedIn())
+        //   this.router.navigateByUrl('');
+        // else
+        //   alert(result.error);
+        this.router.navigate(['/registration-email'], {queryParams: 
+          {correo:this.credentials.correo}
+        });
       },
       err => {
         console.log(err);

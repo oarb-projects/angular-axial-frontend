@@ -111,7 +111,13 @@ export class AuthenticationService {
             headers: { Authorization: this.getToken() }
         });
     }
-    
+
+    public resendEmail(correo): Observable<any> {
+        return this.http.get(this.url + '/usuarios/resend/'+correo, {
+            headers: { Authorization: this.getToken() }
+        });
+    }
+
     public logout(): void {
         this.token = '';
         window.localStorage.removeItem('usuarioToken');
